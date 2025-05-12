@@ -6,23 +6,22 @@ $db   = "dimstock";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
-// Cek koneksi
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Ambil data dari form
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
-// Validasi password cocok
+
 if ($password !== $confirm_password) {
     echo "Password dan Konfirmasi Password tidak sama!";
     exit;
 }
 
-// Cek apakah username sudah digunakan
+
 $sql_check = "SELECT * FROM users WHERE username = '$username'";
 $result = $conn->query($sql_check);
 
@@ -31,10 +30,10 @@ if ($result->num_rows > 0) {
     exit;
 }
 
-// Enkripsi password
+
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-// Simpan ke database
+
 $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_password')";
 
 if ($conn->query($sql) === TRUE) {
