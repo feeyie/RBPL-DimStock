@@ -6,7 +6,7 @@
     <style>
         * {
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -21,21 +21,20 @@
         }
 
         .login-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(68, 68, 68, 0.6); /* warna abu gelap transparan */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            border-radius: 25px;
+            width: 330px;
             text-align: center;
-            width: 320px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .login-container h2 {
-            color: white;
-            margin-bottom: 25px;
             font-size: 24px;
+            margin-bottom: 20px;
         }
 
         .login-container input {
@@ -43,18 +42,20 @@
             padding: 12px;
             margin: 10px 0;
             border: none;
-            border-radius: 10px;
-            outline: none;
+            border-radius: 12px;
             font-size: 14px;
+            background-color: #fff;
+            color: #333;
         }
 
         .login-container button {
             width: 100%;
             padding: 12px;
+            margin-top: 10px;
             border: none;
-            border-radius: 10px;
-            background-color: white;
-            color: black;
+            border-radius: 999px; /* seperti di figma */
+            background-color: #fff;
+            color: #000;
             font-weight: bold;
             font-size: 14px;
             cursor: pointer;
@@ -66,13 +67,12 @@
         }
 
         .login-container p {
-            margin-top: 18px;
-            color: white;
+            margin-top: 20px;
             font-size: 13px;
         }
 
         .login-container a {
-            color: #ffffff;
+            color: #fff;
             text-decoration: underline;
         }
 
