@@ -1,9 +1,8 @@
 <?php
-// Konfigurasi koneksi database
 $host = "localhost";
-$user = "root";       // Ganti sesuai user database
-$pass = "";           // Ganti sesuai password database
-$db   = "dimsum_app"; // Ganti sesuai nama database kamu
+$user = "root";       
+$pass = "";           
+$db   = "dimstock_db"; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -40,8 +39,7 @@ $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_pas
 
 if ($conn->query($sql) === TRUE) {
     echo "Registrasi berhasil. Silakan login.";
-    // Bisa redirect ke halaman login
-    // header("Location: login.html");
+    
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
