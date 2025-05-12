@@ -71,7 +71,7 @@
 <body>
   <div class="form-container">
     <h2>Registrasi</h2>
-    <form action="submit_register.php" method="POST">
+    <form action="proses_registrasi.php" method="POST">
       <input type="text" name="username" placeholder="Username" required />
       <input type="password" name="password" placeholder="Password" required />
       <input type="password" name="confirm_password" placeholder="Confirm Password" required />
