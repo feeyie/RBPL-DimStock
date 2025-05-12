@@ -12,7 +12,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('bg_login.avif') no-repeat center center fixed;
+            background: url('img/bg_login.avif') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
