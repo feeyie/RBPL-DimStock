@@ -1,0 +1,50 @@
+<?php
+// Konfigurasi koneksi database
+$host = "localhost";
+$user = "root";       // Ganti sesuai user database
+$pass = "";           // Ganti sesuai password database
+$db   = "dimsum_app"; // Ganti sesuai nama database kamu
+
+$conn = new mysqli($host, $user, $pass, $db);
+
+// Cek koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+
+// Ambil data dari form
+$username = $_POST['username'];
+$password = $_POST['password'];
+$confirm_password = $_POST['confirm_password'];
+
+// Validasi password cocok
+if ($password !== $confirm_password) {
+    echo "Password dan Konfirmasi Password tidak sama!";
+    exit;
+}
+
+// Cek apakah username sudah digunakan
+$sql_check = "SELECT * FROM users WHERE username = '$username'";
+$result = $conn->query($sql_check);
+
+if ($result->num_rows > 0) {
+    echo "Username sudah digunakan. Silakan pilih yang lain.";
+    exit;
+}
+
+// Enkripsi password
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+// Simpan ke database
+$sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_password')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Registrasi berhasil. Silakan login.";
+    // Bisa redirect ke halaman login
+    // header("Location: login.html");
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
