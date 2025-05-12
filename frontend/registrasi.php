@@ -78,7 +78,7 @@
       <button type="submit">Daftar Akun</button>
     </form>
     <div class="login-link">
-      Punya Akun? <a href="login.html">Login</a>
+      Punya Akun? <a href="login.php">Login</a>
     </div>
   </div>
 </body>
