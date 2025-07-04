@@ -1,25 +1,18 @@
-<?php
+    <?php
 session_start();
-
-// Periksa apakah pengguna telah login
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // Jika tidak, redirect ke halaman login
-    header("Location: login.php");
+if ($_SESSION['role'] != 'admin') {
+    header("Location: ../login.php");
     exit;
 }
-
-// Periksa apakah cookie sesi telah ditetapkan
-if (!isset($_COOKIE[session_name()])) {
-    echo "<p>Session cookie is not active.</p>";
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Utama</title>
+    <title>Dashboard Admin</title>
 
     <!-- Style CSS Link -->
     <link rel="stylesheet" href="style.css" type="text/css">
@@ -49,7 +42,7 @@ if (!isset($_COOKIE[session_name()])) {
         body{
             width: 100%;
             min-height: 100vh;
-            background:#A21D22;
+            background: #A21D22;
         }
 
         .logo{
@@ -286,13 +279,22 @@ if (!isset($_COOKIE[session_name()])) {
     <!-- Navigation -->
     <header>
     <div class="navbar">
-            <a href="index.php" class="logo">
-                <img src="img/logo.png" alt="" width="150" height="100">
+            <a href="homePembeli.php" class="logo">
+                <img src="../img/logo.png" alt="" width="150" height="100">
             </a>
             <nav>
                 <ul class="nav-list">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <li><a href="homeAdmin.php">Home</a></li>
+                    <li><a href="update_productAdmin.php">Update</a></li>
+                    <li><a href="productAdmin.php">Edit</a></li>
+                    <li><a href="konfirmasi_pesananAdmin.php">Order</a></li>
+                    <li><a href="historyAdmin.php">History</a></li>
+                    <li><a href="../index.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                        </svg></a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -305,7 +307,7 @@ if (!isset($_COOKIE[session_name()])) {
                 <h1>Welcome to<span>DimStock</span><br>dashboard!</h1>
             </div>
             <div class="main_image">
-                <img src="img/dashboardDimsum.png">
+                <img src="../img/dashboardDimsum.png">
             </div>
         </div>
         <p>
@@ -328,7 +330,7 @@ if (!isset($_COOKIE[session_name()])) {
 
         <div class="team_box">
             <div class="profile">
-                <img src="img/owner1.jpeg">
+                <img src="../img/owner1.jpeg">
 
                 <div class="info">
                     <h2 class="name">Owner 1</h2>
@@ -345,7 +347,7 @@ if (!isset($_COOKIE[session_name()])) {
             </div>
 
             <div class="profile">
-                <img src="img/owner3.webp">
+                <img src="../img/owner3.webp">
 
                 <div class="info">
                     <h2 class="name">Owner 2</h2>
@@ -362,7 +364,7 @@ if (!isset($_COOKIE[session_name()])) {
             </div>
 
             <div class="profile">
-                <img src="img/staff1.webp">
+                <img src="../img/staff1.webp">
 
                 <div class="info">
                     <h2 class="name">Staff 1</h2>
@@ -379,7 +381,7 @@ if (!isset($_COOKIE[session_name()])) {
             </div>
 
             <div class="profile">
-                <img src="img/staff2.webp">
+                <img src="../img/staff2.webp">
 
                 <div class="info">
                     <h2 class="name">Staff 2</h2>
